@@ -18,6 +18,11 @@ cmake_minimum_required(VERSION 3.8.0)
 ## project name & version
 project(SeExpr2)
 
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_compile_options(-D_GLIBCXX_USE_CXX11_ABI=0)
 # "API" version
 set(${PROJECT_NAME}_VERSION "2.0")
 set(${PROJECT_NAME}_MAJOR_VERSION 2)
@@ -83,13 +88,13 @@ endif()
 
 set(GTEST_DIR "" CACHE STRING "Where to find GTEST")
 option(ENABLE_LLVM_BACKEND "Whether to build with LLVM backend" TRUE)
-option(ENABLE_QT5 "Whether to use Qt5" TRUE)
+option(ENABLE_QT5 "Whether to use Qt5" FALSE)
 option(ENABLE_SSE4 "Whether to use SSE4" TRUE)
-option(USE_PYTHON "Whether to compile python libraries" TRUE)
-option(BUILD_UTILS "Whether to build the utilities" TRUE)
-option(BUILD_DEMOS "Whether to build the demos" TRUE)
-option(BUILD_DOC "Whether to build the documentation" TRUE)
-option(BUILD_TESTS "Whether to build the tests" TRUE)
+option(USE_PYTHON "Whether to compile python libraries" FALSE)
+option(BUILD_UTILS "Whether to build the utilities" FALSE)
+option(BUILD_DEMOS "Whether to build the demos" FALSE)
+option(BUILD_DOC "Whether to build the documentation" FALSE)
+option(BUILD_TESTS "Whether to build the tests" FALSE)
 option(ENABLE_SLOW_TESTS "Whether to enable slow tests" FALSE)
 
 set(LLVM_LIB "")
